@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ui/main.qml</file>
+        <file>ui/Game.ui.qml</file>
+        <file>ui/PlayerItem.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>ui/GameOver.ui.qml</file>
+    </qresource>
+</RCC>

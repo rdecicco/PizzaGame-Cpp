@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+PizzaGame.pro.user
+debug
+release
+profile
