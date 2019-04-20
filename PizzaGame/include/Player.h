@@ -61,6 +61,4 @@ private:
     QVariantList m_comboPizzasModel;
 };
 
-Q_DECLARE_METATYPE(Player::PlayerStates)
-
 #endif // PLAYER_H

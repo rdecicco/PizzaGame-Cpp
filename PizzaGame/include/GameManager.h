@@ -57,6 +57,4 @@ private:
     Player& getOtherPlayer(int playerId);
 };
 
-Q_DECLARE_METATYPE(GameManager::GameStates)
-
 #endif // GAMEMANAGER_H

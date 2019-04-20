@@ -11,9 +11,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     qmlRegisterType<Player>("Player", 1, 0, "Player");
-    qRegisterMetaType<Player::PlayerStates>("PlayerStates");
     qmlRegisterType<GameManager>("GameManager", 1, 0, "GameManager");
-    qRegisterMetaType<GameManager::GameStates>("GameStates");
 
     static GameManager& gameManager = GameManager::getInstance();
     engine.rootContext()->setContextProperty("gameManager", &gameManager);
