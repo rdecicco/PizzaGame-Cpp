@@ -13,13 +13,14 @@ class Player: public QObject
     Q_PROPERTY(QString name MEMBER m_name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(uint lastNumberOfEatenPizzas MEMBER m_lastNumberOfEatenPizzas READ lastNumberOfEatenPizzas WRITE setLastNumberOfEatenPizzas NOTIFY lastNumberOfEatenPizzasChanged)
     Q_PROPERTY(QVariantList comboPizzasModel MEMBER m_comboPizzasModel READ comboPizzasModel NOTIFY comboPizzasModelChanged)
-    Q_ENUMS(Player::PlayerStates)
 
 public:
     enum class PlayerStates {
         Dead,
         Alive
     };
+
+    Q_ENUM(PlayerStates)
 
     Player(QObject* parent=nullptr);
     Player(const Player& player, QObject* parent=nullptr);

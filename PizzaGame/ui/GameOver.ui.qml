@@ -9,9 +9,11 @@ Page {
     height: 480
 
     Label {
-        text: playerA.state == 1 && playerB.state == 1 ? qsTr("Game Over") :
-              playerA.state == 1 && playerB.state == 0 ? qsTr("Winner is " + playerA.name) :
-              playerA.state == 0 && playerB.state == 1 ? qsTr("Winner is " + playerB.name) : qsTr("Players are both dead")
+        text: playerA.state === Player.Alive && playerB.state === Player.Alive ? qsTr("Game Over") :
+              playerA.state === Player.Alive && playerB.state === Player.Dead ? qsTr("Winner is " + playerA.name) :
+              playerA.state === Player.Dead && playerB.state === Player.Alive ? qsTr("Winner is " + playerB.name) :
+              playerA.state === Player.Dead && playerB.state === Player.Dead ? qsTr("Players are both dead") :
+                                                                             qsTr("Players states are undefined")
 
         font.pointSize: 24
         anchors.centerIn: parent

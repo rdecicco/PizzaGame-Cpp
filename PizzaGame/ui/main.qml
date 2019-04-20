@@ -14,7 +14,7 @@ ApplicationWindow {
         id: gameManagerItem
         target: gameManager
         onStateChanged: {
-            if (gameManager.state == 0)
+            if (gameManager.state === GameManager.GameOver)
                 stackView.pop()
         }
     }

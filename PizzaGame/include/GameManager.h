@@ -12,7 +12,6 @@ class GameManager: public QObject
    Q_PROPERTY(uint numberOfPizzas MEMBER m_numberOfPizzas READ numberOfPizzas NOTIFY numberOfPizzasChanged)
    Q_PROPERTY(Player playerA MEMBER m_playerA READ playerA NOTIFY playerAChanged)
    Q_PROPERTY(Player playerB MEMBER m_playerB READ playerB NOTIFY playerBChanged)
-   Q_ENUMS(GameManager::GameStates)
 
    const bool fullGame = true;
 
@@ -21,6 +20,8 @@ public:
         GameOver,
         Game
     };
+
+    Q_ENUM(GameStates)
 
     GameManager(QObject *parent = nullptr);
 
