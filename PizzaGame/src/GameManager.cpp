@@ -19,7 +19,7 @@ GameManager::GameStates GameManager::state() {
 }
 
 void GameManager::newGame() {
-    m_numberOfPizzas = 10 + qAbs(m_pizzasGenerator.generate()) % 11;
+    m_numberOfPizzas = 10 + m_pizzasGenerator.generate() % 11;
     m_playerA.setState(Player::PlayerStates::Alive);
     m_playerA.setLastNumberOfEatenPizzas(0);
     m_playerA.setCurrentPlayer(true);
@@ -105,10 +105,9 @@ bool GameManager::canPass() {
         return false;
 
     for (uint i = 1; i < 4; i++) {
-        if (i != otherPlayer->lastNumberOfEatenPizzas())
+        if (i != otherPlayer->lastNumberOfEatenPizzas() && i<= m_numberOfPizzas)
         {
-            if (i < m_numberOfPizzas && m_numberOfPizzas > 2)
-                return false;
+            return false;
         }
     }
 

@@ -67,7 +67,7 @@ Rectangle {
         enabled: parent.enabled && gameManager.canPass()
 
         onClicked: {
-            gameManager.eatPizzas(0, player);
+            gameManager.eatPizzas(0);
         }
 
         anchors.top: confirm.bottom
