@@ -3,6 +3,7 @@
 
 #include <QtCore>
 #include <QString>
+#include <functional>
 
 class Player: public QObject
 {
@@ -43,6 +44,10 @@ public:
     void setLastNumberOfEatenPizzas(uint lastNumberEatedPizzas);
     QVariantList comboPizzasModel();
     void setComboPizzasModel(uint disabledValue);
+    void setEatPizzas(std::function<bool(uint)> eatPizzas);
+    Q_INVOKABLE bool eatPizzas(uint eatenPizzas);
+    void setCanPass(std::function<bool()> canPass);
+    Q_INVOKABLE bool canPass();
 
 signals:
     void playerIdChanged(int playerId);
@@ -59,6 +64,8 @@ private:
     QString m_name;
     uint m_lastNumberOfEatenPizzas;
     QVariantList m_comboPizzasModel;
+    std::function<bool(uint)> m_eatPizzas;
+    std::function<bool()> m_canPass;
 };
 
 #endif // PLAYER_H

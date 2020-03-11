@@ -32,8 +32,8 @@ public:
 
     GameStates state();
     Q_INVOKABLE void newGame();
-    Q_INVOKABLE bool eatPizzas(uint numberOfPizzas);
-    Q_INVOKABLE bool canPass();
+    bool eatPizzas(uint numberOfPizzas);
+    bool canPass();
     uint numberOfPizzas();
     Player& playerA();
     Player& playerB();

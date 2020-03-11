@@ -17,6 +17,8 @@ Player::Player(const Player& player, QObject* parent):
     m_state = player.m_state;
     m_name = player.m_name;
     m_lastNumberOfEatenPizzas = player.m_lastNumberOfEatenPizzas;
+    m_eatPizzas = player.m_eatPizzas;
+    m_canPass = player.m_canPass;
     setComboPizzasModel(0);
 }
 
@@ -28,11 +30,13 @@ Player::Player(int playerId, const QString& name, QObject *parent):
 }
 
 Player& Player::operator=(const Player& player) {
-    this->m_playerId = player.m_playerId;
-    this->m_state = player.m_state;
-    this->m_name = player.m_name;
-    this->m_lastNumberOfEatenPizzas = player.m_lastNumberOfEatenPizzas;
-    this->m_comboPizzasModel = player.m_comboPizzasModel;
+    m_playerId = player.m_playerId;
+    m_state = player.m_state;
+    m_name = player.m_name;
+    m_lastNumberOfEatenPizzas = player.m_lastNumberOfEatenPizzas;
+    m_comboPizzasModel = player.m_comboPizzasModel;
+    m_eatPizzas = player.m_eatPizzas;
+    m_canPass = player.m_canPass;
     return *this;
 }
 
@@ -103,4 +107,24 @@ void Player::setComboPizzasModel(uint disabledValue) {
         }
     }
     emit comboPizzasModelChanged(m_comboPizzasModel);
+}
+
+void Player::setEatPizzas(std::function<bool(uint)> eatPizzas)
+{
+    m_eatPizzas = eatPizzas;
+}
+
+bool Player::eatPizzas(uint eatenPizzas)
+{
+    return m_eatPizzas(eatenPizzas);
+}
+
+void Player::setCanPass(std::function<bool()> canPass)
+{
+    m_canPass = canPass;
+}
+
+bool Player::canPass()
+{
+    return m_canPass();
 }

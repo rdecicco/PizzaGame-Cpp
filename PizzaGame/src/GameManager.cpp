@@ -23,9 +23,13 @@ void GameManager::newGame() {
     m_playerA.setState(Player::PlayerStates::Alive);
     m_playerA.setLastNumberOfEatenPizzas(0);
     m_playerA.setCurrentPlayer(true);
+    m_playerA.setEatPizzas([&](uint eatenPizzas){return eatPizzas(eatenPizzas);});
+    m_playerA.setCanPass([&](){return canPass();});
     m_playerB.setState(Player::PlayerStates::Alive);
     m_playerB.setLastNumberOfEatenPizzas(0);
     m_playerB.setCurrentPlayer(false);
+    m_playerB.setEatPizzas([&](uint eatenPizzas){return eatPizzas(eatenPizzas);});
+    m_playerB.setCanPass([&](){return canPass();});
     m_state = GameStates::Game;
     emit numberOfPizzasChanged(m_numberOfPizzas);
     emit stateChanged(m_state);

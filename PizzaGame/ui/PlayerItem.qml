@@ -49,7 +49,7 @@ Rectangle {
         enabled: parent.enabled
 
         onClicked: {
-            gameManager.eatPizzas(comboPizzas.model[comboPizzas.currentIndex].value);
+            player.eatPizzas(comboPizzas.model[comboPizzas.currentIndex].value);
         }
 
         anchors.top: comboPizzas.bottom
@@ -64,10 +64,10 @@ Rectangle {
         id: pass
         text: qsTr("Pass");
 
-        enabled: parent.enabled && gameManager.canPass()
+        enabled: parent.enabled && player.canPass()
 
         onClicked: {
-            gameManager.eatPizzas(0);
+            player.eatPizzas(0);
         }
 
         anchors.top: confirm.bottom
